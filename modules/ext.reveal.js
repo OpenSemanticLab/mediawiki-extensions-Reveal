@@ -51,7 +51,8 @@ $(document).ready(function () {
 		//display title and authors
 		var contributors;
 		var contributor_names = "";
-		await fetch(`/w/api.php?action=query&prop=contributors&titles=${mw.config.get( 'wgPageName' )}&format=json`)
+		var title = mw.config.get( 'wgPageName' );
+		await fetch(`/w/api.php?action=query&prop=contributors|info&inprop=displaytitle&titles=${mw.config.get( 'wgPageName' )}&format=json`)
 		  .then(res => res.json())
 		  .then(data => {
 		  	contributors = data.query.pages[Object.keys(data.query.pages)[0]].contributors;
@@ -60,11 +61,13 @@ $(document).ready(function () {
 			  
 			});
 		  	contributor_names = contributor_names.slice(0, -2);
+			var displaytitle = data.query.pages[Object.keys(data.query.pages)[0]].displaytitle;
+			if (displaytitle && displaytitle != "") title = displaytitle;
 		  });
 
 		var reveal_slides = $(`\
 		    <div class="slides" id=reveal-slides">\
-				<section style="top: 40%; font-size: 2em;"><div>${mw.config.get( 'wgPageName' )}</div><div style="font-size: 0.5em; padding-left: 10%; padding-right: 10%;">${contributor_names}</div></section>\
+				<section style="top: 40%; font-size: 2em;"><div>${title}</div><div style="font-size: 0.5em; padding-left: 10%; padding-right: 10%;">${contributor_names}</div></section>\
 			</div>`);
 		$(reveal_body).append(reveal_slides);
 		//remove original page
