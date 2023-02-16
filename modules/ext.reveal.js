@@ -216,6 +216,7 @@ $(document).ready(function () {
 		var font_size_content = 1.0;
 		var rec_count = 0;
 		function calculateFontSize(current){
+			return;
 			var current_old = current;
 
 			if(!(current_old in recursion_object) || rec_count > 350){console.log("stop", Reveal.getCurrentSlide()); rec_count = 0; return;}
