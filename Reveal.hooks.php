@@ -21,4 +21,15 @@ class RevealHooks {
 
 		return "This text will be shown when calling this in MW text.";
 	}
+
+	public static function onBeforePageDisplay( $out ) {
+
+		//handle css explicitly, see https://www.mediawiki.org/wiki/ResourceLoader/Developing_with_ResourceLoader#CSS_2
+		//$out->addModuleStyles( 'ext.reveal.styles' );
+
+		$out->addModules( 'ext.reveal' );
+
+		return true;
+
+	}
 }

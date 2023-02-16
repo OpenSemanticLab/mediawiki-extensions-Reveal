@@ -20,9 +20,8 @@
 	},
 	"Hooks": {
 		
-		"ParserFirstCallInit": [
-			"RevealHooks::onParserFirstCallInit"
-		]
+		"ParserFirstCallInit": ["RevealHooks::onParserFirstCallInit"],
+		"BeforePageDisplay": ["RevealHooks::onBeforePageDisplay"]
 	},
 	"MessagesDirs": {
 		"Reveal": [
@@ -30,7 +29,7 @@
 		]
 	},
 	"ResourceModules": {
-		"ext.reveal.foo": {
+		"ext.reveal": {
 			"scripts": [
 				"modules/ext.reveal.js",
 				"modules/ext.reveal.foo.js"
