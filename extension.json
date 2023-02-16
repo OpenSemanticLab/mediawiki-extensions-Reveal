@@ -39,6 +39,22 @@
 			],
 			"messages": [],
 			"dependencies": []
+		},
+		"ext.reveal.dist": {
+			"scripts": [
+				"modules/reveal/dist/reveal.js"
+			],
+			"styles": [
+				"modules/reveal/dist/reveal.css",
+				"modules/reveal/dist/theme/white.css"
+			]
+		},
+		"ext.reveal.plugin": {
+			"scripts": [
+				"modules/reveal/plugin/notes/notes.js",
+				"modules/reveal/plugin/search/search.js",
+				"modules/reveal/plugin/zoom/zoom.js"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {

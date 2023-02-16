@@ -32,13 +32,15 @@ $(document).ready(function () {
 	var slot = "main";
 	if (searchParams.has('slot')) slot = searchParams.get('slot');
 	if (!requested) return;
-	mw.loader.load("//repolab.github.io/reveal.js/dist/reveal.css", "text/css");
-	mw.loader.load("//repolab.github.io/reveal.js/dist/theme/white.css", "text/css");
+	//mw.loader.load("//repolab.github.io/reveal.js/dist/reveal.css", "text/css");
+	//mw.loader.load("//repolab.github.io/reveal.js/dist/theme/white.css", "text/css");
 	$.when(
-		$.getScript("//repolab.github.io/reveal.js/dist/reveal.js"),
-		$.getScript("//repolab.github.io/reveal.js/plugin/zoom/zoom.js"),
-		$.getScript("//repolab.github.io/reveal.js/plugin/notes/notes.js"),
-		$.getScript("//repolab.github.io/reveal.js/plugin/search/search.js"),
+		//$.getScript("//repolab.github.io/reveal.js/dist/reveal.js"),
+		//$.getScript("//repolab.github.io/reveal.js/plugin/zoom/zoom.js"),
+		//$.getScript("//repolab.github.io/reveal.js/plugin/notes/notes.js"),
+		//$.getScript("//repolab.github.io/reveal.js/plugin/search/search.js"),
+		mw.loader.using('ext.reveal.dist'),
+		mw.loader.using('ext.reveal.plugin'),
 		$.Deferred(function (deferred) {
 			$(deferred.resolve);
 		})
