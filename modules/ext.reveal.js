@@ -29,6 +29,8 @@ $(document).ready(function () {
 	searchParams = new URLSearchParams(window.location.search);
 	var requested = searchParams.has('reveal') && searchParams.get('reveal') === 'true';
 	var req_animate = searchParams.has('animate') && searchParams.get('reveal') === 'true';
+	var slot = "main";
+	if (searchParams.has('slot')) slot = searchParams.get('slot');
 	if (!requested) return;
 	mw.loader.load("//repolab.github.io/reveal.js/dist/reveal.css", "text/css");
 	mw.loader.load("//repolab.github.io/reveal.js/dist/theme/white.css", "text/css");
@@ -99,7 +101,9 @@ $(document).ready(function () {
 		$section.append($section_container);
 		$(reveal_slides).append($section);
 		
-		const elements = $('#mw-content-text').children('.mw-parser-output').children().toArray();
+		var elements = [];
+		if ($('#mw-slot-wrapper-' + slot).length) elements = $('#mw-slot-wrapper-' + slot).children().toArray();
+		else $('#mw-content-text').children('.mw-parser-output').children().toArray();
 		for(let element of elements) {
 			if(req_animate){
 			$(element).find('ul').css({
