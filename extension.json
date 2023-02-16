@@ -1,0 +1,52 @@
+{
+	"name": "Reveal",
+	"version": "0.1.0",
+	"author": [
+		"Simon Stier"
+	],
+	"url": "https://github.com/OpenSemanticLab/mediawiki-extensions-Reveal",
+	"descriptionmsg": "reveal-desc",
+	"license-name": "AGPL v3",
+	"type": "other",
+	"AutoloadClasses": {
+		"RevealHooks": "Reveal.hooks.php"
+	},
+	"config": {
+		"RevealEnableFoo": true
+	},
+	"ExtensionMessagesFiles": {
+		"RevealAlias": "Reveal.i18n.alias.php",
+		"RevealMagic": "Reveal.i18n.magic.php"
+	},
+	"Hooks": {
+		
+		"ParserFirstCallInit": [
+			"RevealHooks::onParserFirstCallInit"
+		]
+	},
+	"MessagesDirs": {
+		"Reveal": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.reveal.foo": {
+			"scripts": [
+				"modules/ext.reveal.js",
+				"modules/ext.reveal.foo.js"
+			],
+			"styles": [
+				"modules/ext.reveal.foo.css"
+			],
+			"messages": [],
+			"dependencies": []
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "Reveal"
+	},
+	"SpecialPages": {
+	},
+	"manifest_version": 1
+}

@@ -1,0 +1,7 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"reveal-desc": "Transforms wikipages to presentations using reveal.js",
+	"reveal-i18n-welcome": "Welcome to the localization file of the Reveal extension."
+}
