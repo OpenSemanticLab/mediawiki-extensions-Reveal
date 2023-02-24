@@ -1,8 +1,9 @@
 {
 	"name": "Reveal",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": [
-		"Simon Stier"
+		"Simon Stier",
+		"Alexander Triol"
 	],
 	"url": "https://github.com/OpenSemanticLab/mediawiki-extensions-Reveal",
 	"descriptionmsg": "reveal-desc",
@@ -35,7 +36,7 @@
 				"modules/ext.reveal.foo.js"
 			],
 			"styles": [
-				"modules/ext.reveal.foo.css"
+				"modules/ext.reveal.css"
 			],
 			"messages": [],
 			"dependencies": []
