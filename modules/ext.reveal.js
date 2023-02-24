@@ -59,7 +59,7 @@ $(document).ready(function () {
 		  .then(data => {
 		  	contributors = data.query.pages[Object.keys(data.query.pages)[0]].contributors;
 		  	contributors.forEach(function(contributor){
-			  if (contributor.name != "Maintenance script") contributor_names += contributor.name + ", ";
+			  if (contributor.name != "Maintenance script" && contributor.name != "Admin") contributor_names += contributor.name + ", ";
 			  
 			});
 		  	contributor_names = contributor_names.slice(0, -2);
