@@ -24,10 +24,57 @@ class RevealHooks {
 
 	public static function onBeforePageDisplay( $out ) {
 
+		$requested = $out->getRequest()->getCheck( 'reveal' );
+
 		//handle css explicitly, see https://www.mediawiki.org/wiki/ResourceLoader/Developing_with_ResourceLoader#CSS_2
 		//$out->addModuleStyles( 'ext.reveal.styles' );
 
-		$out->addModules( 'ext.reveal' );
+		//loading animation (adapted from https://loading.io/css/, CCO)
+		$css = <<<EOD
+		#mw-wrapper { display: none; }
+		.lds-dual-ring {
+			display: inline-block;
+			width: 80px;
+			height: 80px;
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			text-align: center;
+		  }
+		  .lds-dual-ring:before {
+			content: " ";
+			display: block;
+			width: 64px;
+			height: 64px;
+			margin: 8px;
+			border-radius: 50%;
+			border: 6px solid #fff;
+			border-color: #fff transparent #fff transparent;
+			animation: lds-dual-ring 1.2s linear infinite;
+		  }
+		  @keyframes lds-dual-ring {
+			0% {
+			  transform: rotate(0deg);
+			}
+			100% {
+			  transform: rotate(360deg);
+			}
+		  }
+		EOD;
+
+		$js = <<<EOD
+		let div = document.createElement('div');
+		div.classList.add('lds-dual-ring');
+		let text = document.createTextNode('Loading...');
+		div.appendChild(text);
+		document.body.appendChild(div)
+		EOD;
+
+		if ( $requested ) {
+			$out->addInlineStyle( $css ); //inject as early as possible
+			$out->addInlineScript( $js ); //inject as early as possible
+			$out->addModules( 'ext.reveal' );
+		}
 
 		return true;
 
