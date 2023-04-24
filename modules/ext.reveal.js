@@ -168,7 +168,7 @@ $(document).ready(function () {
 		//override conflicting bootstrap css, temporary remove hidden attribute
 		Reveal.addEventListener( 'overviewshown', function( event ) { $('.reveal-section.past, .reveal-section.future').removeAttr('hidden'); } );
 		Reveal.addEventListener( 'overviewhidden', function( event ) { $('.reveal-section.past, .reveal-section.future').attr('hidden', ''); } );
-		mw.util.addCSS( '.reveal table { font-size: 50% !important; }'); //override large table css
+		mw.util.addCSS( '.reveal table:not(.layout-table) { font-size: 50% !important; }'); //override large table css
 		mw.util.addCSS( '.column-container-flex{ display: flex;} .col {flex: 1;} '); //two column layout
 		mw.util.addCSS( '.column-container-grid{ display: grid; grid-auto-flow: column;} '); //two column layout
 		
@@ -206,7 +206,7 @@ $(document).ready(function () {
 						div_center_only += $(grid_children[i]).attr('class') + " ";
 					}
 				}
-				var ul_inside = $($(Reveal.getCurrentSlide()).find(".column-container-grid")[0]).find('ul').length;
+				var ul_inside = $($(Reveal.getCurrentSlide()).find(".column-container-grid")[0]).children('div').children('ul').length;  //only root-level lists
 				var no_toc = $($(Reveal.getCurrentSlide()).find(".column-container-grid")[0]).find('#toc').length;
 				if(div_center_only.includes('div-center') && !div_center_only.includes('div-top') && !div_center_only.includes('div-left') && !div_center_only.includes('div-right') && ul_inside > 0 && no_toc == 0){
 					$($($(Reveal.getCurrentSlide()).find(".column-container-grid")[0]).children()[0]).attr('class', "");
@@ -482,5 +482,7 @@ $(document).ready(function () {
 			if(req_animate){
 			setOpacity();}
 		});
+
+		functionality();
 	});
 });
