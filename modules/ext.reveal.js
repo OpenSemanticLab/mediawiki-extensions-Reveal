@@ -108,7 +108,7 @@ $(document).ready(function () {
 		
 		var elements = [];
 		if ($('#mw-slot-wrapper-' + slot).length) elements = $('#mw-slot-wrapper-' + slot).children().toArray();
-		else $('#mw-content-text').children('.mw-parser-output').children().toArray();
+		else elements = $('#mw-content-text').children('.mw-parser-output').children().toArray();
 		for(let element of elements) {
 			if(req_animate){
 			$(element).find('ul').css({
