@@ -413,9 +413,13 @@ $(document).ready(function () {
 					});
 				}
 			}else if($($(Reveal.getCurrentSlide()).find(".column-container-grid")).find(".InteractiveSemanticGraph").length > 0){
-				$($($(Reveal.getCurrentSlide()).find(".column-container-grid")).find(".InteractiveSemanticGraph")[0]).css({
-					"width": "" + $('body')[0].getBoundingClientRect().width + "px"
-				});
+				//$($($(Reveal.getCurrentSlide()).find(".column-container-grid")).find(".InteractiveSemanticGraph")[0]).css({
+				//	"width": "" + $('body')[0].getBoundingClientRect().width + "px"
+				//});
+				var resetViewBtn = $(Reveal.getCurrentSlide()).find(".isg-button-reset-view")[0];
+				if (resetViewBtn) {
+					setTimeout(function() { resetViewBtn.click() }, 50); //need to wait for network drawing
+				}
 				calculateFontSize(current_page);
 			}else{
 				deleteEmptyDivs();
