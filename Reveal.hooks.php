@@ -79,4 +79,19 @@ class RevealHooks {
 		return true;
 
 	}
+
+	/**
+	 * Hook: Called by Skin when building the toolbox array and
+	 * returning it for the skin to output.
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SidebarBeforeOutput
+	 */
+	public static function onSidebarBeforeOutput( $skin, &$sidebar )
+	{
+		$sidebar["TOOLBOX"][] = [
+			'text' => $skin->msg( 'reveal-menu-entry' )->text(),
+			'href' => "https://$_SERVER[HTTP_HOST]/wiki/" . $skin->getTitle()->getFullText() . '?reveal=true',
+			'id'   => 'reveal'
+		];
+	}
 }

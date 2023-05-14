@@ -1,6 +1,6 @@
 {
 	"name": "Reveal",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"author": [
 		"Simon Stier",
 		"Alexander Triol"
@@ -22,7 +22,8 @@
 	"Hooks": {
 		
 		"ParserFirstCallInit": ["RevealHooks::onParserFirstCallInit"],
-		"BeforePageDisplay": ["RevealHooks::onBeforePageDisplay"]
+		"BeforePageDisplay": ["RevealHooks::onBeforePageDisplay"],
+		"SidebarBeforeOutput": ["RevealHooks::onSidebarBeforeOutput"]
 	},
 	"MessagesDirs": {
 		"Reveal": [

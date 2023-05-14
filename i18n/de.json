@@ -1,0 +1,7 @@
+{
+	"@metadata": {
+		"authors": ["Simon Stier"]
+	},
+	"reveal-desc": "Transformiert Wiki-Seite in Präsentationsfolien unter Nutzung von reveal.js",
+	"reveal-menu-entry": "Präsentationsmodus"
+}

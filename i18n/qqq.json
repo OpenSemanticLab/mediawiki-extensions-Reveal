@@ -1,13 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki",
-			"Umherirrender",
-			"Amire80",
-			"Fhocutt",
-			"Liuxinyu970226"
+			"Simon Stier"
 		]
 	},
 	"reveal-desc": "{{desc|name=Reveal|url=https://github.com/OpenSemanticLab/mediawiki-extensions-Reveal }}",
-	"reveal-i18n-welcome": "Used to greet the user when reading the i18n/??.json file."
+	"reveal-menu-entry": "Label of the link in the toolbar"
 }
