@@ -90,7 +90,7 @@ class RevealHooks {
 	{
 		$sidebar["TOOLBOX"]["reveal"] = [
 			'text' => $skin->msg( 'reveal-menu-entry' )->text(),
-			'href' => "https://$_SERVER[HTTP_HOST]/wiki/" . $skin->getTitle()->getFullText() . '?reveal=true',
+			'href' => $skin->makeInternalOrExternalUrl($skin->getTitle()) . '?reveal=true',
 			'id'   => 't-reveal'
 		];
 	}
