@@ -160,7 +160,7 @@ $(document).ready(function () {
 			showSlideNumber: 'all', //all, print, speaker
 			hashOneBasedIndex: true, //Use 1 based indexing for # links 
 			hash: true, //Add the current slide number to the URL hash
-			respondToHashChanges: true, // Flags if we should monitor the hash and change slides accordingly
+			respondToHashChanges: false, // Flags if we should monitor the hash and change slides accordingly
 			history: true, // Push each slide change to the browser history.  Implies `hash: true`
 			plugins: [ RevealSearch, RevealNotes, RevealZoom ],
 		});
