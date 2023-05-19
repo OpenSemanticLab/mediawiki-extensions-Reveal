@@ -32,6 +32,16 @@ $(document).ready(function () {
 	var slot = "main";
 	if (searchParams.has('slot')) slot = searchParams.get('slot');
 	if (!requested) return;
+
+	var params = new URLSearchParams(location.search);
+	if (!params.get('useskin')) {
+		//enforce skin=timeless
+		params.set('useskin', 'timeless');
+		window.location.search = params.toString();
+	}
+
+	
+
 	//mw.loader.load("//repolab.github.io/reveal.js/dist/reveal.css", "text/css");
 	//mw.loader.load("//repolab.github.io/reveal.js/dist/theme/white.css", "text/css");
 	$.when(
@@ -84,7 +94,7 @@ $(document).ready(function () {
 		$print_link = $('<a class="reveal-print"><i class="fa fa-caret-right" style="position: fixed; right: 140px; bottom: 30px; z-index: 30; font-size: 24px;">🖨</i></a>');
 		$print_link.on('click', function(){var url = new window.URL(window.location); url.searchParams.append('print-pdf', true); window.location=url;});
 		$close_link = $('<a class="reveal-close"><i class="fa fa-caret-right" style="position: fixed; right: 180px; bottom: 30px; z-index: 30; font-size: 24px;">🚪</i></a>');
-		$close_link.on('click', function(){var url = new window.URL(window.location); url.searchParams.delete('reveal'); window.location=url;});
+		$close_link.on('click', function(){var url = new window.URL(window.location); url.searchParams.delete('reveal'); url.searchParams.delete('useskin'); window.location=url;});
 		$('body').append($close_link, $print_link); //insert links
 		
 		//template
