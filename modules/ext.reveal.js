@@ -181,7 +181,8 @@ $(document).ready(function () {
 		mw.util.addCSS( '.reveal table:not(.layout-table) { font-size: 50% !important; }'); //override large table css
 		mw.util.addCSS( '.column-container-flex{ display: flex;} .col {flex: 1;} '); //two column layout
 		mw.util.addCSS( '.column-container-grid{ display: grid; grid-auto-flow: column;} '); //two column layout
-		
+		// hide .toc (footer) but not .toc .center (header/main) using not selector
+		mw.util.addCSS( '.column-container-grid .toc:not(.center) { display: none; }');
 
 		//Checks if only one of the set <div>s is not empty in the container
 		function allOtherDivsEmpty(){
@@ -431,6 +432,13 @@ $(document).ready(function () {
 					setTimeout(function() { resetViewBtn.click() }, 50); //need to wait for network drawing
 				}
 				calculateFontSize(current_page);
+			}else if($($(Reveal.getCurrentSlide()).find(".column-container-grid")).find("iframe").length > 0){
+				console.log("iframe found");
+				deleteEmptyDivs();
+				// scale to full width/height
+				$(Reveal.getCurrentSlide()).find(".column-container-grid").css({
+					"grid-template-areas": `"t t t" "c c c"`
+				});
 			}else{
 				deleteEmptyDivs();
 				calculateFontSize(current_page);
